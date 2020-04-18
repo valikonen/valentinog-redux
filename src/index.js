@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+
+import store from "./store/index";
+import { addArticle } from './actions/index';
+
+import { Provider } from 'react-redux';
+window.store = store;
+window.addArticle = addArticle;
+
+store.subscribe(() => {
+  console.log('Look ma, Redux')
+});
+
+store.dispatch(addArticle({
+  id: Date.now(),
+  title: "CFR Cluj"
+}))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
