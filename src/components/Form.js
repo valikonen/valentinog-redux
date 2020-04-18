@@ -7,15 +7,13 @@ function mapDispatchToProps(dispatch) {
         addMyArticle: article => dispatch(addArticle(article))
     }
 }
-const ConnectedForm = (props) => {
-
-    console.log('props: ', props)
+const ConnectedForm = ({addMyArticle}) => {
 
     const [article, setArticle] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
-        // addMyArticle({id: Date.now(), title: article});
+        addMyArticle({id: Date.now(), title: article});
         setArticle('');
     }
 
