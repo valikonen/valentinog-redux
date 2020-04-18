@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './List';
 import Form from './Form';
+import Posts from './Posts';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
 
       <h3>Add article</h3>
       <Form />
+      <h3>Posts</h3>
+      <Posts />
     </div>
   );
 }

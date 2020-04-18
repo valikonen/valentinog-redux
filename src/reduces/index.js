@@ -2,7 +2,8 @@ import { ADD_ARTICLE } from '../constants/action-type';
 
 // Reducers produce the state of an application. 
 const initialState = {
-    articles: []
+    articles: [],
+    posts: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -11,7 +12,11 @@ function rootReducer(state = initialState, action) {
         case ADD_ARTICLE:
             return Object.assign({}, state, {
                 articles: state.articles.concat(action.payload)
-            })
+            });
+        case "LOADED_POSTS":
+            return Object.assign({}, state, {
+                posts: state.posts.concat(action.payload)
+            });
         default: return state;
     }
    
